@@ -136,11 +136,11 @@ form{
 }
 
 /* galleries container */
-
+/*
 .galleries-container{
-   /* border: 1px dashed var(--pure-white);*/
+   border: 1px dashed var(--pure-white);
 }
-
+*/
 /* trending */
 
 .trending{

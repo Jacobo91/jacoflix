@@ -15,7 +15,7 @@ class SearchBar{
             this.searchBtn.addEventListener('click', async () => {
             event.preventDefault();
             const url1 = 'https://netflix54.p.rapidapi.com/search/?query=';
-            const genre = this.getInput();
+            const genre = this.getInput().toLowerCase();
             const url2 = '&offset=0&limit_titles=20&limit_suggestions=20&lang=en';
             const baseURL = `${url1}${genre}${url2}`;
             const array = await this.fetch(baseURL);
