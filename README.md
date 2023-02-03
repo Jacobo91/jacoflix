@@ -9,4 +9,10 @@ trending class from the api and generating the results in the HTML
 
 3. instantiated the class constructor with the proper arguments for creating the recommended section 
 
-4. add code so the search bar works by updating the actual page and not openenin a new one throug a class constructor  STATUS: pending...
+4. add searchbar (works by gender - no name search added due to limited requests available uppon the API subscription plan so results are also restricted to only 20-)(would probably add a show more button than adds by 10 
+requests up to 40-)
+
+5 PENDIND: add rating to each item
+
+6 PENDING: add functionality to nav bar buttons to display movies or series according to the button press and organize movies and series by gender with overflow-x: scroll;
+

@@ -1,4 +1,78 @@
 
+/*
+    1. searchbar searches by genre only
+*/
+
+class SearchBar{
+    constructor(){
+        this.input = document.querySelector('.searchInput');
+        this.searchBtn = document.querySelector('.search-btn');
+        this.galsContainer = document.querySelector('.galleries-container');
+        console.log(this.input, this.searchBtn);
+        this.displayResults()
+    }
+    displayResults(){
+            this.searchBtn.addEventListener('click', async () => {
+            event.preventDefault();
+            const url1 = 'https://netflix54.p.rapidapi.com/search/?query=';
+            const genre = this.getInput();
+            const url2 = '&offset=0&limit_titles=20&limit_suggestions=20&lang=en';
+            const baseURL = `${url1}${genre}${url2}`;
+            const array = await this.fetch(baseURL);
+            const titles = array.titles;
+            this.generateHTML(titles)
+        })
+    }
+    getInput(){
+        const searchInput = this.input.value;
+        return searchInput;
+    }
+    async fetch(value){
+        try{
+            const response = await fetch(value, {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '584cee3d4cmshbc7ed3c23b24627p11e5c4jsn1dfbb3334930',
+                    'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
+                }
+            });
+            if (response.ok){
+                const jsonResponse = await response.json();
+                const result = jsonResponse;
+                return result
+            }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    async generateHTML(titles){
+        if(this.galsContainer.childNodes.length > 0){
+            this.galsContainer.innerHTML = '';
+        };
+        const searchSec = document.createElement('section');
+        searchSec.classList.add('search-gallery');
+        this.galsContainer.appendChild(searchSec);
+        titles.forEach(title => {
+            const searchDiv = document.createElement('div');
+            searchDiv.classList.add('recommended-item')
+            searchDiv.innerHTML = `
+        
+                <a href="#">
+                    <img src="${title.jawSummary.backgroundImage.url}"alt="">
+                    <div class="recommended-item-description">
+                        <span>${title.jawSummary.releaseYear} ${title.summary.type}</span>
+                        <h4>${title.jawSummary.title}</h4>
+                    </div>
+                </a>
+
+            `;
+            searchSec.appendChild(searchDiv)
+        })
+    }
+}
+
+const searchBar = new SearchBar()
 /* 
     1. fetched data and display it on the window 
     2. target referes to the class of the element where the data is going to be appended eg: '.trading-gallery'
