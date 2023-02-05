@@ -14,5 +14,5 @@ requests up to 40-)
 
 5 PENDIND: add rating to each item
 
-6 PENDING: add functionality to nav bar buttons to display movies or series according to the button press and organize movies and series by gender with overflow-x: scroll;
+6 fix bug so the fetched data when pressing the nav buttons dont add up, but deletes the previous and add the fetched
 

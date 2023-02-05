@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 /* global styles */
 
 .flex-spacebetween{
@@ -41,6 +42,10 @@ i{
 
 button:hover{
     cursor: pointer;
+}
+
+.uppercase{
+    text-transform: uppercase;
 }
 
 /* variables */
@@ -101,6 +106,19 @@ nav{
 
 main{
     background-color: var(--dark-blue);
+}
+
+
+.page-title{
+    font-size: 3rem;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title-second-word{
+    color: var(--red);
 }
 
 /* searchbar */
