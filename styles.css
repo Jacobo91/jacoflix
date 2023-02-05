@@ -166,10 +166,14 @@ form{
 }
 
 .trending-gallery{
-   /* border: 1px dashed var(--pure-white);*/
     display: flex;
     column-gap: 0.8rem;
     overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    background-color: var(--dark-blue);
 }
 
 .trending-item{
@@ -200,11 +204,15 @@ form{
 
 /* recomended */
 
-.recommended{
+.recommended,
+.movies, 
+.shows{
     padding: 0 1rem 1rem 1rem;
 }
 
-.recommended-gallery{
+.recommended-gallery,
+.movies-gallery,
+.shows-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.9rem;
@@ -228,7 +236,9 @@ form{
 
     /* recommended */
 
-    .recommended-gallery{
+    .recommended-gallery,
+    .movies-gallery,
+    .shows-gallery{
         grid-template-columns: repeat(3, 1fr);
     }
     
@@ -237,6 +247,11 @@ form{
     }
 }
 
+@media only screen and (min-width: 1024px){
+    .trending-gallery img{
+        height: 15rem;
+    }
+}
 
 @media only screen and (min-width: 1440px){
 
@@ -244,7 +259,9 @@ form{
 
     /* recommended */
 
-    .recommended-gallery{
+    .recommended-gallery,
+    .movies-gallery,
+    .shows-gallery{
         grid-template-columns: repeat(4, 1fr);
     }
     
